@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+html, body{
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+body {
+  font-family: 'Roboto Serif','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  background-color: navy;
+  font-size: 1.3rem;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  border: 1px solid black;
+  height: fit-content;
+  line-height: 2rem;
+}
+
+h1, h2 {
+  font-family: Montserrat, Arial, sans-serif;
+  text-align: center;
+}
+
+h3 {
+  font-family: Montserrat, Arial, sans-serif;
+  margin: 1rem;
+  text-align: left;
+}
+
+small {
+  display:block;
+  width: fit-content;
+  text-indent: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: #5d626a;
+  padding: 0.5rem 4rem;
+}
+
+main ul {
+  margin: 0.3rem 1rem;
+}
+
+#form {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto auto 1rem auto;
+}
+
+#form article section {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+header,footer {
+  background-color: #40464C;
+  color: white;
+}
+
+#header-h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 4rem;
+}
+
+p {
+  margin: 0.3rem 1rem;
+}
+
+footer ul, nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul, footer ul {
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  width: 100%;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav ul li {
+  width:14.28571429%;
+  min-width:fit-content;
+  list-style-type: none;
+  padding: 0.2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li{
+  width: fit-content;
+  min-width:fit-content;
+  list-style-type: none;
+  padding: 0.2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li a, nav ul li a {
+  display: block;
+  color: white;
+  width:fit-content;
+  /* border: solid beige; */
+  font-weight: normal;
+}
+
+footer ul li a:first-child, nav ul li a:first-child {
+  border-left: none;
+  border-right: none;
+}
+
+a {
+  text-decoration: none;
+  /* color: #8B0000; */
+  color:lightblue;
+  font-weight: bold;
+}
+
+figure {
+  text-align: center;
+}
+
+figure img {
+  height: auto;
+}
+
+figcaption {
+  font-style: italic;
+}
+
+#montserrat {
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: bold;
+}
+
+#dark-red{
+  color: #8B0000;
+}
+
+#dark-brown{
+  color: #553c2b
+}
+
+#brown{
+  color: #8F5635;
+}
+
+#light-brown{
+  width:fit-content;
+  background-color: #004080;
+  color: #E8C8A9;
+}
+
+#light-brown::marker{
+  color: #004080;
+}
+
+#beige{
+  color: beige;
+}
+
+#greeting {
+  text-align: center;
+}
+
+form {
+  margin-top: 1rem;
+  width:100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input[type="submit"] {
+  font-family: 'Roboto Serif','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #8F5635;
+  color:beige;
+  padding: 0.3rem;
+  cursor: pointer;
+  display: inline-block;
+  width:fit-content;
+  margin: 1rem auto
+}
+
+i {
+  margin-left: 1rem;
+}
+
+button {
+  font-family: 'Roboto Serif','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  align-self: center;
+  background-color: #8F5635;
+  color: beige;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+#favicon {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 1rem;
+}
+
+#logo {
+  width: 5rem;
+  height: 5rem;
+}
+
+#fizzbuzzoutput {
+margin:auto;
+} 
+
+#middle-initial {
+  width: 1rem;
+}
+
+#intro-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#intro-form input {
+  width: fit-content;
+  font-family: 'Roboto Serif','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+#intro-form textarea {
+  width: 50%;
+  height: 6rem;
+  font-family: 'Roboto Serif','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+#intro-form .course{
+  width: 19rem;
+}
+
+#intro-form .reason {
+  width: 29rem;
+}
+
+#courses {
+  margin-top: 0;
+}
+
+#intro-form #funny {
+  width: 15rem;
+}
+
+.padding {
+  padding: 1rem;
+}
