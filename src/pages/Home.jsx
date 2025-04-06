@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-
+import { Link } from 'react-router-dom';
 function Home() {
     useEffect(() => {
         document.title = "Clerick Barrion's Crazy Bat | WEB215 | Home";
@@ -12,7 +12,7 @@ function Home() {
                 Here is where I'll demonstrate things with JavaScript. 
                 There will be more to come. 
                 I hope you enjoy your visit.
-                <a href="/introduction"> Learn more about me here</a>.
+                <Link to="/introduction"> Learn more about me here</Link>.
             </p>
         </main>
     )

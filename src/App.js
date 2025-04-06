@@ -9,18 +9,17 @@ import Contract from './pages/Contract';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/web215-react">
       <div className="App">
         <Header />
 
-        
+
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/introduction" element={<Introduction/>} />
-            <Route path="/contract" element={<Contract/>} />
-            <Route path="/template" element={<Template/>} />
+            <Route path='/' element={<Home/>} />
+            <Route path='/introduction' element={<Introduction/>} />
+            <Route path='/contract' element={<Contract/>} />
+            <Route path='/template' element={<Template/>} />
           </Routes>
-        
 
         <Footer />
       </div>

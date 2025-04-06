@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
@@ -7,9 +8,9 @@ function Header() {
             <small><i></i></small>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/introduction">Introduction</a></li>
-                    <li><a href="/contract">Contract</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/introduction">Introduction</Link></li>
+                    <li><Link to="/contract">Contract</Link></li>
                     <li><a href="https://mern-tutorial-7srg.onrender.com/">MERN Tutorial</a></li>
                 </ul>
             </nav>

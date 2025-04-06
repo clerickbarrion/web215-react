@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import pfp from '../images/clerickblowingrock.jpg'
 
 function Introduction() {
@@ -21,7 +22,7 @@ function Introduction() {
                 <li>
                     <strong>Courses I'm Taking &amp; Why:</strong>
                     <ol>
-                        <li><a href="/contract"><strong>WEB215 - Adv Markup and Scripting: </strong></a>To get a refresher on React and Node.</li>
+                        <li><Link to="/contract"><strong>WEB215 - Adv Markup and Scripting: </strong></Link>To get a refresher on React and Node.</li>
                     </ol>
                     
                 </li>
