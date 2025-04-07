@@ -15,7 +15,7 @@ function Login() {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
-        axios.post('http://localhost:5000/login', { username, password })
+        axios.post('https://web215-react.onrender.com/login', { username, password })
             .then(res => {
                 if (res.status === 200) {
                     localStorage.setItem('user', JSON.stringify(res.data));
@@ -37,7 +37,7 @@ function Login() {
             setError('Passwords do not match');
             return;
         }
-        axios.post('http://localhost:5000/users', { username, password })
+        axios.post('https://web215-react.onrender.com/users', { username, password })
             .then(res => {
                 if (res.status === 200) {
                     localStorage.setItem('user', JSON.stringify(res.data));

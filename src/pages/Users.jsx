@@ -9,7 +9,7 @@ function Users() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         document.title = "Clerick Barrion's Crazy Bat | WEB215 | Users";
-        axios.get('http://localhost:5000/users').then(res => {
+        axios.get('https://web215-react.onrender.com/users').then(res => {
             if (res.status === 200) {
                 setUsers(res.data);
             }
