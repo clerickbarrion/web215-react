@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 function Header() {
@@ -12,6 +12,11 @@ function Header() {
                     <li><Link to="/introduction">Introduction</Link></li>
                     <li><Link to="/contract">Contract</Link></li>
                     <li><a href="https://mern-tutorial-7srg.onrender.com/">MERN Tutorial</a></li>
+                    <li><Link to="/users">Users</Link></li>
+                    {localStorage.getItem('user') === null ? 
+                    <li><Link to="/login">Login/Signup</Link></li> 
+                    : 
+                    <li><Link to="/profile">Profile</Link></li>}
                 </ul>
             </nav>
         </header>

@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Header from "../components/header";
+import Footer from "../components/footer";
 function Home() {
     useEffect(() => {
         document.title = "Clerick Barrion's Crazy Bat | WEB215 | Home";
     }, [])
     return (
+        <>
+        <Header />
         <main>
             <h2>Home</h2>
             <p>
@@ -15,6 +19,8 @@ function Home() {
                 <Link to="/introduction"> Learn more about me here</Link>.
             </p>
         </main>
+        <Footer />
+        </>
     )
 }
 

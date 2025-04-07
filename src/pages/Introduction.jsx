@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
+import Header from "../components/header";
+import Footer from "../components/footer";
 import pfp from '../images/clerickblowingrock.jpg'
 
 function Introduction() {
@@ -7,6 +9,8 @@ function Introduction() {
         document.title = "Clerick Barrion's Crazy Bat | WEB215 | Introduction";
     }, [])
     return (
+        <>
+        <Header />
         <main>
             <h2>Introduction</h2>
             <figure>
@@ -29,6 +33,8 @@ function Introduction() {
                 <li><strong>Funny/Interesting Item to Remember me by: </strong>I can juggle.</li>
             </ul>
         </main>
+        <Footer />
+        </>
     )
 }
 
