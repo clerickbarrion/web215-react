@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/web215-react/static/css/main.c0c85e9f.css",
-    "main.js": "/web215-react/static/js/main.53aabb8e.js",
+    "main.css": "/web215-react/static/css/main.6755b918.css",
+    "main.js": "/web215-react/static/js/main.daf3b1c3.js",
     "static/js/453.14ceabae.chunk.js": "/web215-react/static/js/453.14ceabae.chunk.js",
     "static/media/clerickblowingrock.jpg": "/web215-react/static/media/clerickblowingrock.9796a74ac0cd50051c4b.jpg",
+    "static/media/anonymous.png": "/web215-react/static/media/anonymous.e3c686d5a6c4241045d7.png",
     "index.html": "/web215-react/index.html",
-    "main.c0c85e9f.css.map": "/web215-react/static/css/main.c0c85e9f.css.map",
-    "main.53aabb8e.js.map": "/web215-react/static/js/main.53aabb8e.js.map",
+    "main.6755b918.css.map": "/web215-react/static/css/main.6755b918.css.map",
+    "main.daf3b1c3.js.map": "/web215-react/static/js/main.daf3b1c3.js.map",
     "453.14ceabae.chunk.js.map": "/web215-react/static/js/453.14ceabae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0c85e9f.css",
-    "static/js/main.53aabb8e.js"
+    "static/css/main.6755b918.css",
+    "static/js/main.daf3b1c3.js"
   ]
 }
