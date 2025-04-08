@@ -7,6 +7,7 @@ import Contract from './pages/Contract';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Users from './pages/Users';
+import Movies from './pages/Movies';
 function App() {
   return (
     <Router basename="/web215-react">
@@ -18,6 +19,7 @@ function App() {
             <Route path='/introduction' element={<Introduction/>} />
             <Route path='/contract' element={<Contract/>} />
             <Route path='/template' element={<Template/>} />
+            <Route path='/movies' element={<Movies/>} />
             <Route path='/users' element={<Users/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/profile' element={<Profile/>} />
