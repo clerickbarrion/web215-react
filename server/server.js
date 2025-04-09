@@ -63,5 +63,5 @@ app.get('/review/:movie_id', async (req, res) => {
 
 app.post('/review', async (req, res) => {
   const review = req.body;
-  Users.findOneAndUpdate({ username: review.username }, { $push: { reviews: review } }, { new: true })
+  Users.findOneAndUpdate({ username: review.username }, { $push: { reviews: {movie: review.movie, comment: review.comment} } }, { new: true })
 })
