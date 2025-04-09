@@ -11,7 +11,7 @@ import Movies from './pages/Movies';
 import OneMovie from './pages/OneMovie';
 function App() {
   return (
-    <Router basename="/web215-react">
+    <Router>
       <div className="App">
 
 
