@@ -53,13 +53,15 @@ app.post('/login', async (req,res) => {
   }
 })
 
+app.get('/review/:movie_id', async (req, res) => {
+  const { movie_id } = req.params;
+  const users = await Users.find({ reviews: { $elemMatch: { movie: movie_id } } })
+  if (users.length === 0) res.status(404).json({ message: 'No reviews found for this movie' });
+  const reviews = users.map(user => user.reviews.filter(review => review.movie === movie_id).map(review => ({ ...review, username: user.username, picture: user.picture })));
+  res.json(reviews.flat());
+})
 
-// app.put('/todos/:id', async (req, res) => {
-//   const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
-//   res.json(updatedTodo);
-// });
-
-// app.delete('/todos/:id', async (req, res) => {
-//   await Todo.findByIdAndDelete(req.params.id);
-//   res.json({ message: 'Todo deleted successfully' });
-// });
+app.post('/review', async (req, res) => {
+  const review = req.body;
+  Users.findOneAndUpdate({ username: review.username }, { $push: { reviews: review } }, { new: true })
+})
