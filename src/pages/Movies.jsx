@@ -51,7 +51,7 @@ function Movies() {
             <ul id='movieList'>
                 {movies.map(movie => (
                     <li key={movie.id}>
-                        <Movie movie_id={movie.id} title={movie.title} poster_path={movie.poster_path} overview={movie.overview} />
+                        <Movie movie_id={movie.id} title={movie.title} poster_path={movie.poster_path} overview={movie.overview} release_date={movie.release_date} />
                     </li>
                 ))}
             </ul>

@@ -127,7 +127,6 @@ footer ul li a:first-child, nav ul li a:first-child {
 
 a {
   text-decoration: none;
-  /* color: #8B0000; */
   color:lightblue;
   font-weight: bold;
 }
@@ -149,7 +148,8 @@ figcaption {
   justify-content: center;
   flex-wrap: wrap;
 }
-#userList li, #movieList li {
+
+#userList li, #movieList li, #reviewList li {
   list-style-type: none;
 }
 
@@ -235,6 +235,12 @@ i {
   
 }
 
+textarea {
+  font-size: 1.3rem;
+  font-family: inherit;
+  height: 10rem;
+}
+
 .pagination {
   display: flex;
   width: 100%;
@@ -244,4 +250,64 @@ i {
 .pagination div {
   text-align: center;
 
+}
+
+#oneMovie {
+  flex-direction: row;
+}
+
+#oneMovie figure {
+  float:left;
+  width: fit-content;
+}
+
+aside button {
+  margin: 0.3rem 1rem;
+}
+#oneMovie aside div {
+  display: flex;
+}
+
+#oneMovie aside {
+  width: 100%;
+}
+
+#oneMovie aside div button {
+  width: 50%;
+}
+
+#oneMovie form {
+  margin: 0.3rem 1rem
+}
+
+#oneMovie form button {
+  margin-left:auto;
+  margin-right: 0
+}
+
+.active {
+  color: #40464C;
+  background-color: white;
+  font-weight: normal;
+}
+
+#reviewList{
+  padding: 0;
+}
+
+.review {
+  background-color: #40464C;
+  color: white;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.review img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.review div {
+  display: flex;
+  flex-direction: column;  
 }
