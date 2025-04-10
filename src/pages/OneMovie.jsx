@@ -65,6 +65,7 @@ function OneMovie() {
                 favorites: [...user.favorites, props.movie_id]
             }))
         } else if (e.target.innerText.includes('Remove')) {
+            console.log(user.username)
             axios.delete('https://web215-react.onrender.com/favorites', {
                 username: user.username,
                 movie_id: props.movie_id
