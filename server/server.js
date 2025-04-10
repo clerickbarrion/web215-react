@@ -77,7 +77,7 @@ app.post('/favorites', async (req, res) => {
 
 app.delete('/favorites', async (req, res) => {
   const { username, movie_id } = req.body;
-  const user = await Users.findOneAndDelete({ username }, { $pull: { favorites: movie_id } }, { new: true });
+  const user = await Users.findOneAndUpdate({ username }, { $pull: { favorites: movie_id } }, { new: true });
   await user.save();
   res.json({ message: 'Movie removed from favorites' });
 })
