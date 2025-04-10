@@ -1,5 +1,11 @@
-<html>
-    <script type="text/javascript">
-        window.location.replace("/web215-react" + window.location.pathname);
-    </script>
-</html>
+<script type="text/javascript">
+    (function() {
+      // Only strip the GitHub Pages domain and leave the actual React route
+      var redirectPath = window.location.pathname
+        .replace(/^\/web215-react/, "") // remove basename
+        .replace(/\/+$/, ""); // remove trailing slashes
+
+      // Go to the index.html with the correct route
+      window.location.replace("/web215-react/index.html?redirect=" + redirectPath + window.location.search + window.location.hash);
+    })();
+  </script>
