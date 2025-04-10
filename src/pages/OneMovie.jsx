@@ -14,11 +14,9 @@ function OneMovie() {
         movie_id: ''
     })
     const [favorite, setFavorite] = useState(false)
-    const [user, setUser] = useState(null)
+    const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('user')))
-        if (user !== null) setFavorite(user.favorites.includes(props.movie_id))
         const options = {
             "method": 'GET',
             "url": 'https://api.themoviedb.org/3/movie/' + movie_id + '?language=en-US',
@@ -31,10 +29,11 @@ function OneMovie() {
                     poster_path: res.data.poster_path,
                     release_date: res.data.release_date,
                     overview: res.data.overview,
-                    movie_id: String(res.data.id)
+                    movie_id: movie_id
                 })
             }
         })
+        if (user !== null) setFavorite(user.favorites.includes(movie_id))        
     }, [])
 
 
@@ -53,31 +52,24 @@ function OneMovie() {
         if (e.target.innerText.includes('Add')) {
             axios.post('https://web215-react.onrender.com/favorites', {
                 username: user.username,
-                movie_id: props.movie_id
+                movie_id: movie_id
             })
             setFavorite(true)
-            setUser({
-                ...user,
-                favorites: [...user.favorites, props.movie_id]
-            })
             localStorage.setItem('user', JSON.stringify({
                 ...user,
-                favorites: [...user.favorites, props.movie_id]
+                favorites: [...user.favorites, movie_id]
             }))
         } else if (e.target.innerText.includes('Remove')) {
-            console.log(user.username)
             axios.delete('https://web215-react.onrender.com/favorites', {
+                data: {
                 username: user.username,
-                movie_id: props.movie_id
+                movie_id: movie_id
+                }
             })
             setFavorite(false)
-            setUser({
-                ...user,
-                favorites: user.favorites.filter(fav => fav !== props.movie_id)
-            })
             localStorage.setItem('user', JSON.stringify({
                 ...user,
-                favorites: user.favorites.filter(fav => fav !== props.movie_id)
+                favorites: user.favorites.filter(fav => fav !== movie_id)
             }))
         }
     }
