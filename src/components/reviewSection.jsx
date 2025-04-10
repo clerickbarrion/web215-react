@@ -20,9 +20,8 @@ function ReviewSection(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target.review.value);
         const review = {
-            movie: props.movie_id,
+            movie: String(props.movie_id),
             username: user.username,
             comment: e.target.review.value,
             picture: user.picture
