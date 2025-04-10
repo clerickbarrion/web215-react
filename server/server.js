@@ -67,3 +67,17 @@ app.post('/review', async (req, res) => {
   await user.save()
   res.json({ message: 'Review added' });
 })
+
+app.post('/favorites', async (req, res) => {
+  const { username, movie_id } = req.body;
+  const user = await Users.findOneAndUpdate({ username }, { $push: { favorites: movie_id } }, { new: true });
+  await user.save();
+  res.json({ message: 'Movie added to favorites' });
+})
+
+app.delete('/favorites', async (req, res) => {
+  const { username, movie_id } = req.body;
+  const user = await Users.findOneAndDelete({ username }, { $pull: { favorites: movie_id } }, { new: true });
+  await user.save();
+  res.json({ message: 'Movie removed from favorites' });
+})
