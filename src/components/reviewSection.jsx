@@ -20,6 +20,9 @@ function ReviewSection(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (e.target.review.value === '') {
+            return
+        }
         const review = {
             movie: String(props.movie_id),
             username: user.username,
@@ -31,6 +34,7 @@ function ReviewSection(props) {
         }).catch((error) => {
             console.error(error);
         });
+        e.target.review.value = '';
     }
 
     return (

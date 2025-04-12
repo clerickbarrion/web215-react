@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import ReviewSection from '../components/reviewSection';
-
+import Header from '../components/header';
+import Footer from '../components/footer';
 function OneMovie() {
     const apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGU5NmFhZmRiOGIwNWJkNGMwMzkyNDM3ZTEzNGJjNyIsInN1YiI6IjY1NzcyZWE1NTY0ZWM3MDBhY2Q0ZDFmNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fjvHhYWM0hzn830zTKHtyuru8HLOqQyuXlntPsVrUQw"
     const movie_id = window.location.pathname.split('/')[window.location.pathname.split('/').length-1]
@@ -74,6 +75,8 @@ function OneMovie() {
         }
     }
     return (
+        <>
+        <Header/>
         <main id='oneMovie'>
             <figure>
                 <img src={`${'https://www.themoviedb.org/t/p/w440_and_h660_face'+props.poster_path}`} alt={props.title}/>
@@ -98,6 +101,8 @@ function OneMovie() {
                 </section>
             </aside>
         </main>
+        <Footer/>
+        </>
     )
 }
 
