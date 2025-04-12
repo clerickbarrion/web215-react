@@ -77,7 +77,7 @@ function OneMovie() {
     return (
         <>
         <Header/>
-        <main id='oneMovie'>
+        <main className='asideFrame'>
             <figure>
                 <img src={`${'https://www.themoviedb.org/t/p/w440_and_h660_face'+props.poster_path}`} alt={props.title}/>
             </figure>
@@ -96,7 +96,7 @@ function OneMovie() {
                 </div>
                 <section>
                     {
-                    section === 'Overview' ? <p>{props.overview}</p> : <ReviewSection movie_id={props.movie_id}/>
+                    section === 'Overview' ? <p>{props.overview}</p> : <ReviewSection movie_id={props.movie_id} title={props.title}/>
                 }
                 </section>
             </aside>

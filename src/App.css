@@ -196,6 +196,10 @@ figcaption {
   height: 100%;
 }
 
+.asideFrame .movieFigure {
+  width: 10vw;
+}
+
 .movieFigure:hover {
   cursor: pointer;
 }
@@ -252,35 +256,35 @@ textarea {
 
 }
 
-#oneMovie {
+.asideFrame {
   flex-direction: row;
 }
 
-#oneMovie figure {
+.asideFrame figure {
   float:left;
   width: fit-content;
 }
 
-aside button {
+.asideFrame button {
   margin: 0.3rem 1rem;
 }
-#oneMovie aside div {
+.asideFrame aside div {
   display: flex;
 }
 
-#oneMovie aside {
+.asideFrame aside {
   width: 100%;
 }
 
-#oneMovie aside div button {
+.asideFrame aside div button {
   width: 50%;
 }
 
-#oneMovie form {
+.asideFrame form {
   margin: 0.3rem 1rem
 }
 
-#oneMovie form button {
+.asideFrame form button {
   margin-left:auto;
   margin-right: 0
 }

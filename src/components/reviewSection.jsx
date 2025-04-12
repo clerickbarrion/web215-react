@@ -6,9 +6,9 @@ import Review from '../components/review';
 function ReviewSection(props) {
     const [reviews, setReviews] = useState([]);
     const [user, setUser] = useState(null);
+    const _user = localStorage.getItem('user');
     useEffect(() => {
-        const _user = localStorage.getItem('user');
-        if (_user) {
+        if (_user !== null) {
             setUser(JSON.parse(_user));
         }
         axios.get('https://web215-react.onrender.com/review/' + props.movie_id).then(res => {
@@ -27,10 +27,15 @@ function ReviewSection(props) {
             movie: String(props.movie_id),
             username: user.username,
             comment: e.target.review.value,
-            picture: user.picture
+            picture: user.picture,
+            title: props.title,
         }
         axios.post('https://web215-react.onrender.com/review', review).then(res => {
             setReviews([...reviews, review]);
+            localStorage.setItem('user', JSON.stringify({
+                ...user,
+                reviews: [...user.reviews, { movie: String(props.movie_id), comment: e.target.review.value, title: props.title }]
+            }))
         }).catch((error) => {
             console.error(error);
         });
