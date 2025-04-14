@@ -56,6 +56,8 @@ app.post('/login', async (req,res) => {
   const { username, password } = req.body;
   const user = users.find(user => user.username === username && user.password === password);
   if (user) {
+    user.password = undefined;
+    user.favorites = user.favorites.map(fav => fav.movie);
     res.json(user);
   } else {
     res.status(401).json({ message: 'Incorrect username/password' });
