@@ -34,7 +34,7 @@ function OneMovie() {
                 })
             }
         })
-        if (user !== null) setFavorite(user.favorites.includes(movie_id))        
+        if (user !== null) setFavorite(user.favorites.some(fav => fav.movie === movie_id))        
     }, [])
 
 
@@ -60,7 +60,7 @@ function OneMovie() {
             setFavorite(true)
             localStorage.setItem('user', JSON.stringify({
                 ...user,
-                favorites: [...user.favorites, movie_id]
+                favorites: [...user.favorites, {movie: movie_id}]
             }))
         } else if (e.target.innerText.includes('Remove')) {
             axios.delete('https://web215-react.onrender.com/favorites', {
@@ -72,7 +72,7 @@ function OneMovie() {
             setFavorite(false)
             localStorage.setItem('user', JSON.stringify({
                 ...user,
-                favorites: user.favorites.filter(fav => fav !== movie_id)
+                favorites: user.favorites.filter(fav => fav.movie !== movie_id)
             }))
         }
     }
