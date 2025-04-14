@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import User from '../components/user';
-
+import { Link } from 'react-router-dom';
 
 function Users() {
     const [users, setUsers] = useState([]);
@@ -26,7 +26,9 @@ function Users() {
             <ul id='userList'>
                 {users.map(user => (
                     <li key={user._id}>
-                        <User username={user.username} picture={user.picture} />
+                        <Link to={`/users/${user.username}`}>
+                            <User username={user.username} picture={user.picture} />
+                        </Link>
                     </li>
                 ))}
             </ul>

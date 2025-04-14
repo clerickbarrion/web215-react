@@ -3,9 +3,10 @@ import axios from 'axios';
 import ReviewSection from '../components/reviewSection';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import { useParams } from 'react-router-dom';
 function OneMovie() {
     const apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGU5NmFhZmRiOGIwNWJkNGMwMzkyNDM3ZTEzNGJjNyIsInN1YiI6IjY1NzcyZWE1NTY0ZWM3MDBhY2Q0ZDFmNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fjvHhYWM0hzn830zTKHtyuru8HLOqQyuXlntPsVrUQw"
-    const movie_id = window.location.pathname.split('/')[window.location.pathname.split('/').length-1]
+    const movie_id = useParams().id
     const [section,setSection] = useState('Overview');
     const [props, setProps] = useState({
         title: '',
@@ -98,7 +99,7 @@ function OneMovie() {
                 </div>
                 <section>
                     {
-                    section === 'Overview' ? <p>{props.overview}</p> : <ReviewSection movie_id={props.movie_id} title={props.title}/>
+                    section === 'Overview' ? <p>{props.overview}</p> : <ReviewSection movie_id={props.movie_id} title={props.title} poster_path={props.poster_path}/>
                 }
                 </section>
             </aside>

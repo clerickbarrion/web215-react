@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Users from './pages/Users';
 import Movies from './pages/Movies';
 import OneMovie from './pages/OneMovie';
+import OneUser from './pages/OneUser';
 function App() {
   return (
     <Router basename="/web215-react">
@@ -23,6 +24,7 @@ function App() {
             <Route path='/movies/*' element={<Movies/>} />
             <Route path='/movie/:id' element={<OneMovie/>} />
             <Route path='/users' element={<Users/>} />
+            <Route path='/users/:username' element={<OneUser/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/profile' element={<Profile/>} />
           </Routes>
