@@ -37,7 +37,6 @@ app.get('/users/:username', async (req, res) => {
   const user = await Users.findOne({ username });
   if (!user) return res.status(404).json({ message: 'User not found' });
   user.password = undefined;
-  user.favorites = user.favorites.map(fav => fav.movie);
   res.json(user);
 })
 
@@ -57,7 +56,6 @@ app.post('/login', async (req,res) => {
   const user = users.find(user => user.username === username && user.password === password);
   if (user) {
     user.password = undefined;
-    user.favorites = user.favorites.map(fav => fav.movie);
     res.json(user);
   } else {
     res.status(401).json({ message: 'Incorrect username/password' });
