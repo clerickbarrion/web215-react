@@ -20,6 +20,7 @@ function OneUser() {
             setFavorites(res.data.favorites);
             setReviews(res.data.reviews);
             setUser(res.data);
+            console.log(res.data.reviews)
         })
     }, [])
 
@@ -39,6 +40,7 @@ function OneUser() {
         <main className="asideFrame">
             <figure>
                 <img src={user.picture || anon} alt="Profile" />
+                {user.username}
             </figure>
             <aside>
                 <h1>Welcome to {user.username}'s profile page!</h1>
