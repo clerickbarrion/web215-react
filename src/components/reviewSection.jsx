@@ -32,10 +32,10 @@ function ReviewSection(props) {
         }
         axios.post('https://web215-react.onrender.com/review', review).then(res => {
             setReviews([...reviews, review]);
-            localStorage.setItem('user', JSON.stringify({
-                ...user,
-                reviews: [...user.reviews, { movie: String(props.movie_id), comment: e.target.review.value, title: props.title }]
-            }))
+            // localStorage.setItem('user', JSON.stringify({
+            //     ...user,
+            //     reviews: [...user.reviews, { movie: String(props.movie_id), comment: e.target.review.value, title: props.title }]
+            // }))
         }).catch((error) => {
             console.error(error);
         });

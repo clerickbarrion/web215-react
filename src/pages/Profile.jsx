@@ -9,9 +9,9 @@ import Review from '../components/review';
 import { Link } from 'react-router-dom';
 function Profile() {
     const user = JSON.parse(localStorage.getItem('user'))
-    const apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGU5NmFhZmRiOGIwNWJkNGMwMzkyNDM3ZTEzNGJjNyIsInN1YiI6IjY1NzcyZWE1NTY0ZWM3MDBhY2Q0ZDFmNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fjvHhYWM0hzn830zTKHtyuru8HLOqQyuXlntPsVrUQw"
-    const [section,setSection] = useState('Favorites');
-    const [favoriteMovies, setFavoriteMovies] = useState([]);
+    const [favorites, setFavorites] = useState([]);
+    const [reviews, setReviews] = useState([]);
+    const [section, setSection] = useState('Favorites');
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -22,32 +22,32 @@ function Profile() {
             return;
         }
 
-        const fetchFavorites = async () => {
-            const promises = user.favorites.map(async (id) => {
-                const options = {
-                    method: 'GET',
-                    url: `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-                    headers: { Authorization: `Bearer ${apiKey}` },
-                };
-                const res = await axios.request(options);
-                return res.data;
-            });
+        axios.get('https://web215-react.onrender.com/users/' + user.username).then(res => {
+            setFavorites(res.data.favorites);
+            setReviews(res.data.reviews);
+        })
+        // const fetchFavorites = async () => {
+        //     const promises = user.favorites.map(async (id) => {
+        //         const options = {
+        //             method: 'GET',
+        //             url: `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+        //             headers: { Authorization: `Bearer ${apiKey}` },
+        //         };
+        //         const res = await axios.request(options);
+        //         return res.data;
+        //     });
 
-            const results = await Promise.all(promises);
-            setFavoriteMovies(results);
-        };
+        //     const results = await Promise.all(promises);
+        //     setFavoriteMovies(results);
+        // };
 
-        if (section === 'Favorites') {
-            fetchFavorites();
-        }
+        // if (section === 'Favorites') {
+        //     fetchFavorites();
+        // }
 
-    }, [section]);
+    }, []);
     
-
-    if (!user) {
-        navigate('/login');
-        return null
-    }
+    
     function handleLogout() {
         localStorage.removeItem('user');
         navigate('/');
@@ -81,16 +81,16 @@ function Profile() {
                 <section>
                     {section === 'Favorites' ? 
                         <ul id='movieList'>
-                            {favoriteMovies.map(movie => {
+                            {favorites.map(movie => {
                                 return (
-                                    <li key={movie.id}>
-                                        <Movie movie_id={movie.id} title={movie.title} poster_path={movie.poster_path} overview={movie.overview} release_date={movie.release_date} />
+                                    <li key={movie.movie}>
+                                        <Movie movie_id={movie.movie} title={movie.title} poster_path={movie.poster_path} />
                                     </li>
                                 )
                             })}
                         </ul> : 
                         <ul id='reviewList'>
-                            {user.reviews.map((review, index) => {
+                            {reviews.map((review, index) => {
                                 return (
                                     <Link to={'/movie/'+review.movie} key={index}>
                                         <li key={index}>

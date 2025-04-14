@@ -53,13 +53,15 @@ function OneMovie() {
         if (e.target.innerText.includes('Add')) {
             axios.post('https://web215-react.onrender.com/favorites', {
                 username: user.username,
-                movie_id: movie_id
+                movie_id: movie_id,
+                title: props.title,
+                poster_path: props.poster_path
             })
             setFavorite(true)
-            localStorage.setItem('user', JSON.stringify({
-                ...user,
-                favorites: [...user.favorites, movie_id]
-            }))
+            // localStorage.setItem('user', JSON.stringify({
+            //     ...user,
+            //     favorites: [...user.favorites, movie_id]
+            // }))
         } else if (e.target.innerText.includes('Remove')) {
             axios.delete('https://web215-react.onrender.com/favorites', {
                 data: {
@@ -68,10 +70,10 @@ function OneMovie() {
                 }
             })
             setFavorite(false)
-            localStorage.setItem('user', JSON.stringify({
-                ...user,
-                favorites: user.favorites.filter(fav => fav !== movie_id)
-            }))
+            // localStorage.setItem('user', JSON.stringify({
+            //     ...user,
+            //     favorites: user.favorites.filter(fav => fav !== movie_id)
+            // }))
         }
     }
     return (

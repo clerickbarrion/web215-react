@@ -32,6 +32,14 @@ app.get('/users', async (req, res) => {
     res.json(users);
 });
 
+app.get('/users/:username', async (req, res) => {
+  const { username } = req.params;
+  const user = await Users.findOne({ username });
+  if (!user) return res.status(404).json({ message: 'User not found' });
+  user.password = undefined;
+  res.json(user);
+})
+
 app.post('/users', async (req, res) => {
   const newUser = new Users(req.body);
   const users = await Users.find();
@@ -69,15 +77,15 @@ app.post('/review', async (req, res) => {
 })
 
 app.post('/favorites', async (req, res) => {
-  const { username, movie_id } = req.body;
-  const user = await Users.findOneAndUpdate({ username }, { $push: { favorites: movie_id } }, { new: true });
+  const { username, movie_id, title, poster_path } = req.body;
+  const user = await Users.findOneAndUpdate({ username }, { $push: { favorites: {movie: movie_id, title, poster_path} } }, { new: true });
   await user.save();
   res.json({ message: 'Movie added to favorites' });
 })
 
 app.delete('/favorites', async (req, res) => {
   const { username, movie_id } = req.body;
-  const user = await Users.findOneAndUpdate({ username }, { $pull: { favorites: movie_id } }, { new: true });
+  const user = Users.findOneAndUpdate({ username }, { $pull: { favorites: {movie: movie_id} } }, { new: true });
   await user.save();
   res.json({ message: 'Movie removed from favorites' });
 })
