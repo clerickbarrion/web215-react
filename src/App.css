@@ -87,6 +87,7 @@ header,footer {
 
 p {
   margin: 0.3rem 1rem;
+  font-weight: initial
 }
 
 footer ul, nav ul {
@@ -269,8 +270,9 @@ textarea {
 .asideFrame button {
   margin: 0.3rem 1rem;
 }
-.asideFrame aside div {
+.asideFrame > aside > div {
   display: flex;
+  width: 100%;
 }
 
 .asideFrame aside {
@@ -305,6 +307,7 @@ textarea {
   color: white;
   width: 100%;
   margin: 1rem auto;
+  display:flex;
 }
 
 .review img {
@@ -317,4 +320,64 @@ textarea {
 .review div {
   display: flex;
   flex-direction: column;  
+}
+
+.reviewButtons {
+  display: block !important;
+  width: 100%;
+  text-align: right;
+}
+.reviewButtons button {
+  background-color: white;
+  color: #40464C;
+  width:fit-content !important;
+}
+
+.top {
+  flex-direction: row !important;
+}
+
+
+.modalContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #40464C;
+  padding:  4rem 0rem;
+  width: 50%;
+  margin: 0 !important;
+}
+
+.modal textarea {
+  width: 80%;
+  height: 20rem;
+}
+
+.modalButtons {
+  flex-direction: row !important;
+  width: initial !important;
+}
+
+.modalButtons button {
+  background-color: white;
+  color: #40464C;
+  width: fit-content !important;
+  margin: 2rem !important
 }

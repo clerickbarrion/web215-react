@@ -72,15 +72,21 @@ app.get('/review/:movie_id', async (req, res) => {
 
 app.post('/review', async (req, res) => {
   const review = req.body;
-  const user = await Users.findOneAndUpdate({ username: review.username }, { $push: { reviews: {movie: review.movie, comment: review.comment, title: review.title, poster_path: review.poster_path} } }, { new: true })
+  const user = await Users.findOneAndUpdate({ username: review.username }, { $push: { reviews: {movie: review.movie, comment: review.comment, title: review.title, poster_path: review.poster_path, date: review.date} } }, { new: true })
   await user.save()
   res.json({ message: 'Review added' });
 })
 
 app.put('/review', async (req, res) => {
-  const { username, movie, comment, oldComment } = req.body;
-  await Users.findOneAndUpdate({ username, 'reviews.movie': movie, 'reviews.comment': oldComment }, { $set: { 'reviews.$.comment': comment } }, { new: true });
+  const { username, comment, date } = req.body;
+  await Users.findOneAndUpdate({ username, 'reviews.date': date }, { $set: { 'reviews.$.comment': comment } }, { new: true });
   res.json({ message: 'Review updated' });
+})
+
+app.delete('/review', async (req, res) => {
+  const { username, date } = req.body;
+  await Users.findOneAndUpdate({ username, 'reviews.date': date }, { $pull: { reviews: { date } } }, { new: true });
+  res.json({ message: 'Review deleted' });
 })
 
 app.post('/favorites', async (req, res) => {

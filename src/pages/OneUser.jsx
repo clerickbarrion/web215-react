@@ -20,7 +20,6 @@ function OneUser() {
             setFavorites(res.data.favorites);
             setReviews(res.data.reviews);
             setUser(res.data);
-            console.log(res.data.reviews)
         })
     }, [])
 
@@ -64,7 +63,7 @@ function OneUser() {
                                 return (
                                     <li key={index}>
                                         <Link to={'/movie/'+review.movie} key={index}>
-                                            <Review username={review.title} comment={review.comment} picture={'https://www.themoviedb.org/t/p/w440_and_h660_face'+review.poster_path} />
+                                            <Review username={review.title} comment={review.comment} picture={'https://www.themoviedb.org/t/p/w440_and_h660_face'+review.poster_path} date={review.date} />
                                         </Link>
                                     </li>
                                 )

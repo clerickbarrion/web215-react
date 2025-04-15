@@ -29,7 +29,8 @@ function ReviewSection(props) {
             comment: e.target.review.value,
             picture: user.picture,
             title: props.title,
-            poster_path: props.poster_path
+            poster_path: props.poster_path,
+            date: Number(new Date())
         }
         axios.post('https://web215-react.onrender.com/review', review).then(res => {
             setReviews([...reviews, review]);
@@ -55,7 +56,7 @@ function ReviewSection(props) {
             {reviews.map(review => {
                 return (
                     <li key={review.movie}>
-                        <Review username={review.username} comment={review.comment} picture={review.picture} />
+                        <Review movie={review.movie} username={review.username} comment={review.comment} picture={review.picture} date={review.date} />
                     </li>
                 )
             })}
