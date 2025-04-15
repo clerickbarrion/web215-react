@@ -77,6 +77,12 @@ app.post('/review', async (req, res) => {
   res.json({ message: 'Review added' });
 })
 
+app.put('/review', async (req, res) => {
+  const { username, movie, comment, oldComment } = req.body;
+  await Users.findOneAndUpdate({ username, 'reviews.movie': movie, 'reviews.comment': oldComment }, { $set: { 'reviews.$.comment': comment } }, { new: true });
+  res.json({ message: 'Review updated' });
+})
+
 app.post('/favorites', async (req, res) => {
   const { username, movie_id, title, poster_path } = req.body;
   const user = await Users.findOneAndUpdate({ username }, { $push: { favorites: {movie: movie_id, title, poster_path} } }, { new: true });
