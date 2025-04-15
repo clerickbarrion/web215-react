@@ -17,7 +17,7 @@ function Profile() {
     useEffect(() => {
         document.title = "Clerick Barrion's Crazy Bat | WEB215 | Profile";
 
-        if (!user) {
+        if (user === null) {
             navigate('/login');
             return;
         }
@@ -49,11 +49,11 @@ function Profile() {
         <Header/>
         <main className="asideFrame">
             <figure>
-                <img src={user.picture || anon} alt="Profile" />
+                <img src={user?.picture || anon} alt="Profile" />
                 <input type='submit' value='Logout' onClick={handleLogout}/>
             </figure>
             <aside>
-                <h1>Welcome to your profile page, {user.username}!</h1>
+                <h1>Welcome to your profile page, {user?.username}!</h1>
 
                 <div>
                     <button className='active' onClick={activate}>Favorites</button>

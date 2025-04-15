@@ -10,7 +10,16 @@ import Users from './pages/Users';
 import Movies from './pages/Movies';
 import OneMovie from './pages/OneMovie';
 import OneUser from './pages/OneUser';
+import { useEffect } from 'react';
 function App() {
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (typeof user?.favorites[0] !== 'object' && user?.favorites.length > 0) {
+      localStorage.removeItem('user');
+      }
+    }, [])
+
   return (
     <Router basename="/web215-react">
       <div className="App">
