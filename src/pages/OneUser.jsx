@@ -16,6 +16,7 @@ function OneUser() {
     const [user, setUser] = useState({});
 
     useEffect(() => {
+        document.title = username
         axios.get('https://web215-react.onrender.com/users/' + username).then(res => {
             setFavorites(res.data.favorites);
             setReviews(res.data.reviews);

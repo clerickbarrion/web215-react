@@ -19,6 +19,7 @@ function OneMovie() {
     const user = JSON.parse(localStorage.getItem('user'))
 
     useEffect(() => {
+        document.title = props.title
         const options = {
             "method": 'GET',
             "url": 'https://api.themoviedb.org/3/movie/' + movie_id + '?language=en-US',
@@ -35,7 +36,11 @@ function OneMovie() {
                 })
             }
         })
-        if (user !== null) setFavorite(user.favorites.some(fav => fav.movie === movie_id))        
+        if (user !== null) {
+            axios.get('https://web215-react.onrender.com/users/' + user.username).then(res => {
+                setFavorite(res.data.favorites.some(fav => fav.movie === movie_id))
+            })
+        }        
     }, [])
 
 
@@ -59,10 +64,10 @@ function OneMovie() {
                 poster_path: props.poster_path
             })
             setFavorite(true)
-            localStorage.setItem('user', JSON.stringify({
-                ...user,
-                favorites: [...user.favorites, {movie: movie_id}]
-            }))
+            // localStorage.setItem('user', JSON.stringify({
+            //     ...user,
+            //     favorites: [...user.favorites, {movie: movie_id}]
+            // }))
         } else if (e.target.innerText.includes('Remove')) {
             axios.delete('https://web215-react.onrender.com/favorites', {
                 data: {
@@ -71,10 +76,10 @@ function OneMovie() {
                 }
             })
             setFavorite(false)
-            localStorage.setItem('user', JSON.stringify({
-                ...user,
-                favorites: user.favorites.filter(fav => fav.movie !== movie_id)
-            }))
+            // localStorage.setItem('user', JSON.stringify({
+            //     ...user,
+            //     favorites: user.favorites.filter(fav => fav.movie !== movie_id)
+            // }))
         }
     }
     return (

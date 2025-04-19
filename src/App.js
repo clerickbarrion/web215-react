@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (typeof user?.favorites[0] !== 'object' && user?.favorites.length > 0) {
+    if (user?.favorites) {
       localStorage.removeItem('user');
       }
     }, [])
