@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Review from '../components/review';
-
+import { Link } from 'react-router-dom';
 
 function ReviewSection(props) {
     const [reviews, setReviews] = useState([]);
@@ -56,7 +56,7 @@ function ReviewSection(props) {
             {reviews.map(review => {
                 return (
                     <li key={review.movie}>
-                        <Review movie={review.movie} username={review.username} comment={review.comment} picture={review.picture} date={review.date} />
+                        <Review movie={review.movie} username={<Link to={'/users/'+review.username}>{review.username}</Link>} comment={review.comment} picture={review.picture} date={review.date} />
                     </li>
                 )
             })}

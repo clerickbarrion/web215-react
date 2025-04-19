@@ -3,6 +3,7 @@ import anon from '../images/anonymous.png'
 import noimg from '../images/noimg.png'
 import EditModal from './editModal'
 import DeleteModal from './deleteModal'
+import { Link } from 'react-router-dom'
 function Review(props) {
     const user = JSON.parse(localStorage.getItem('user'))
     const username = user ? user.username : null
