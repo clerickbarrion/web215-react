@@ -29,6 +29,7 @@ app.listen(PORT, () => {
 
 app.get('/users', async (req, res) => {
     const users = await Users.find();
+    users.forEach(user => user.password = undefined);
     res.json(users);
 });
 
