@@ -6,7 +6,7 @@ import DeleteModal from './deleteModal'
 import { Link } from 'react-router-dom'
 function Review(props) {
     const user = JSON.parse(localStorage.getItem('user'))
-    const username = user ? user.username : null
+    const username = user !== null ? user.username : null
     const [comment, setComment] = useState(props.comment)
     const [edit, setEdit] = useState(false)
     const [deleted, setDeleted] = useState(false)
@@ -23,7 +23,7 @@ function Review(props) {
             <img onError={e => e.target.src = noimg} src={props.picture ? props.picture : anon} alt={props.username} />
             <div>
                 <div className='top'>
-                    <p>{props.username}</p>
+                    <p><Link to={'/users/'+props.username}>{props.username}</Link></p>
                     <p>{convertDate(props.date)}</p>
                     {username === props.username ? 
                     (
