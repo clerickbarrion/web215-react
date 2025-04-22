@@ -56,7 +56,7 @@ function ReviewSection(props) {
             {reviews.map(review => {
                 return (
                     <li key={review.movie}>
-                        <Review movie={review.movie} username={review.username} comment={review.comment} picture={review.picture} date={review.date} />
+                        <Review movie={review.movie} username={review.username} comment={review.comment} picture={review.picture} date={review.date}/>
                     </li>
                 )
             })}

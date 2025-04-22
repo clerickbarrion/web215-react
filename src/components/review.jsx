@@ -23,9 +23,13 @@ function Review(props) {
             <img onError={e => e.target.src = noimg} src={props.picture ? props.picture : anon} alt={props.username} />
             <div>
                 <div className='top'>
-                    <p><Link to={'/users/'+props.username}>{props.username}</Link></p>
+                    <p>
+                        <Link to={props.title ? `/movie/${props.movie}` : `/users/${props.username}`}>
+                            {props.title || props.username }
+                        </Link>
+                    </p>
                     <p>{convertDate(props.date)}</p>
-                    {username === props.username ? 
+                    {username === props.username || (props.title !== null && username === props.username) ? 
                     (
                         <div className='reviewButtons'>
                             <button onClick={() => setEdit(!edit)}>Edit</button>
@@ -36,8 +40,8 @@ function Review(props) {
                 </div>
                 <p>{comment}</p>
             </div>
-            <EditModal username={props.username} comment={comment} date={props.date} setComment={setComment} setEdit={setEdit} edit={edit} />
-            <DeleteModal username={props.username} date={props.date} setDeleted={setDeleted} deleted={deleted} deleteModal={deleteModal} setDeleteModal={setDeleteModal} />
+            <EditModal username={username} comment={comment} date={props.date} setComment={setComment} setEdit={setEdit} edit={edit} />
+            <DeleteModal username={username} date={props.date} setDeleted={setDeleted} deleted={deleted} deleteModal={deleteModal} setDeleteModal={setDeleteModal} />
         </div>
     )
 }

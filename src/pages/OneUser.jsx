@@ -63,7 +63,7 @@ function OneUser() {
                             {reviews.map((review, index) => {
                                 return (
                                     <li key={index}>
-                                        <Review username={<Link to={'/movie/'+review.movie}>{review.title}</Link>} comment={review.comment} picture={'https://www.themoviedb.org/t/p/w440_and_h660_face'+review.poster_path} date={review.date} />
+                                        <Review title={review.title} movie={review.movie} username={user.username} comment={review.comment} picture={'https://www.themoviedb.org/t/p/w440_and_h660_face'+review.poster_path} date={review.date} />
                                     </li>
                                 )
                             })}
