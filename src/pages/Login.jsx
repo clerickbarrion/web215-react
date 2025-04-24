@@ -69,14 +69,14 @@ function Login() {
                     <label htmlFor="confirmPassword">Confirm Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required />
                     <br />
-                    <p onClick={() => setSignUpToggle(!signUpToggle)}>Already have an account? <Link>Log in</Link></p>
                     <input type="submit" value="Sign Up"/>
+                    <p onClick={() => setSignUpToggle(!signUpToggle)}>Already have an account? <Link>Log in</Link></p>
                     </>
                     :    
                     <>
                     <br/>
-                    <p onClick={() => setSignUpToggle(!signUpToggle)}>Don't have an account? <Link>Sign up</Link></p>
                     <input type="submit" value='Login'/>
+                    <p onClick={() => setSignUpToggle(!signUpToggle)}>Don't have an account? <Link>Sign up</Link></p>
                     </>
                 }
             </form>
