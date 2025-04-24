@@ -74,7 +74,6 @@ function Login() {
                     </>
                     :    
                     <>
-                    <br/>
                     <input type="submit" value='Login'/>
                     <p onClick={() => setSignUpToggle(!signUpToggle)}>Don't have an account? <Link>Sign up</Link></p>
                     </>
