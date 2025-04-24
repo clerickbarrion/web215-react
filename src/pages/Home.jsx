@@ -15,7 +15,6 @@ function Home() {
                 Welcome to the home page of Crazy Bat!
                 Here, you can find, review and favorite movies that are trending today.
                 Whether you're hunting for a new movie to watch or just want to see what's popular, this is the place to be.
-                <Link to="/introduction"> Learn more about me here</Link>.
             </p>
             <br/>
             <p>

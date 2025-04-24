@@ -5,13 +5,8 @@ function Header() {
     return (
         <header class="padding">
             <h1 id="header-h1">Clerick Barrion's Crazy Bat | WEB215</h1>
-            <small><i></i></small>
             <nav>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/introduction">Introduction</Link></li>
-                    <li><Link to="/contract">Contract</Link></li>
-                    <li><a href="https://mern-tutorial-7srg.onrender.com/">MERN Tutorial</a></li>
                     <li><Link to="/movies">Movies</Link></li>
                     <li><Link to="/users">Users</Link></li>
                     {localStorage.getItem('user') === null ? 

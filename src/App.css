@@ -76,6 +76,7 @@ article {
 header,footer {
   background-color: #40464C;
   color: white;
+  padding: 1rem;
 }
 
 #header-h1 {
@@ -227,10 +228,6 @@ i {
 .error {
   color: red;
   text-align: center;
-}
-
-.padding {
-  padding: 1rem;
 }
 
 .search {
